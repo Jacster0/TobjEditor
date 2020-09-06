@@ -48,41 +48,41 @@
 
 class Window {
 private:
-	class WindowClass {
-	public:
-		static const char* GetName() noexcept;
-		static HINSTANCE GetInstance() noexcept;
-	private:
-		WindowClass() noexcept;
-		~WindowClass();
-		WindowClass(const WindowClass&) = delete;
-		WindowClass& operator = (const WindowClass&) = delete;
-		static constexpr const char* wndClassName = "Tobj Editor";
-		static WindowClass wndClass;
-		HINSTANCE hInst;
-	};
+    class WindowClass {
+    public:
+        static const char* GetName() noexcept;
+        static HINSTANCE GetInstance() noexcept;
+    private:
+        WindowClass() noexcept;
+        ~WindowClass();
+        WindowClass(const WindowClass&) = delete;
+        WindowClass& operator = (const WindowClass&) = delete;
+        static constexpr const char* wndClassName = "Tobj Editor";
+        static WindowClass wndClass;
+        HINSTANCE hInst;
+    };
 public:
-	Window(int width, int height, const char* name) noexcept;
-	~Window();
-	Window(const Window&) = delete;
-	Window& operator = (const Window&) = delete;
-	std::optional<int> ProcessMessages();
+    Window(int width, int height, const char* name) noexcept;
+    ~Window();
+    Window(const Window&) = delete;
+    Window& operator = (const Window&) = delete;
+    std::optional<int> ProcessMessages();
 private:
-	static LRESULT CALLBACK SetupProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
-	static LRESULT CALLBACK RedirectProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
-	LRESULT HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
+    static LRESULT CALLBACK SetupProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
+    static LRESULT CALLBACK RedirectProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
+    LRESULT HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
 private:
-	void SetFont(HWND hWnd);
-	bool OpenFile(HWND hWnd);
-	bool SaveFile(HWND hWnd);
+    void SetFont(HWND hWnd);
+    bool OpenFile(HWND hWnd);
+    bool SaveFile(HWND hWnd);
 private:
-	HWND hWnd;
-	HWND hWndOpenTobjButton;
-	HWND hWndSaveTobjButton;
-	HWND hWndLoadEdit;
-	HWND hWndSaveEdit;
-	HWND hWndEditStatus;
-	HFONT hFont;
-	LOGFONT lf;
-	Tobj t_object;
+    HWND hWnd;
+    HWND hWndOpenTobjButton;
+    HWND hWndSaveTobjButton;
+    HWND hWndLoadEdit;
+    HWND hWndSaveEdit;
+    HWND hWndEditStatus;
+    HFONT hFont;
+    LOGFONT lf;
+    Tobj t_object;
 };

@@ -4,8 +4,8 @@
 
 class Application {
 public:
-	Application();
-	int Run();
+    Application();
+    int Run();
 private:
-	std::unique_ptr<Window> wnd;
+    std::unique_ptr<Window> wnd;
 };
